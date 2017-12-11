@@ -1,5 +1,5 @@
 " color
-syntax on
+"syntax on
 " disp number on the left (setting <C-n> Toggle)
 set number
 " disp tab and trail
@@ -95,24 +95,24 @@ call dein#begin(expand('~/.vim/dein/'))
   call dein#add ('tpope/vim-endwise')
   call dein#add ('kchmck/vim-coffee-script')
   call dein#add ('osyo-manga/vim-anzu')
+  call dein#add ('uupaa/ts.md')
 
 
   "call dein#add ('Shougo/context_filetype.vim')
   "call dein#add ('osyo-manga/vim-precious')
 
-  autocmd BufNewFile,BufRead *.vue set filetype=html
   " visibility {{{
   " 保存状態未保存状態で下のラインの色が違うようになる。どれがどういう役割なのか不明
   call dein#add ('nathanaelkane/vim-indent-guides')
-  "call dein#add 'LeafCage/foldCC'
-  call dein#add ('bling/vim-airline') "これが保存状態未保存状態でステータスバーを色分けするプラグインみたいだ
+  call dein#add ('bling/vim-airline') "保存状態未保存状態でステータスバーを色分けするプラグイン
   call dein#add ('osyo-manga/vim-over') "一括置き換え 使い方   :%s/置き換える文字/置き換え後の文字   みたいな
   " }}}
 
 
-  "更新箇所がリアルタイムで分かる
   " git {{{
+  " Gblameとかで色々見れる
   call dein#add ('tpope/vim-fugitive')
+  " 更新箇所がリアルタイムで分かる
   call dein#add ('airblade/vim-gitgutter')
   " }}}
 
@@ -149,6 +149,7 @@ call dein#end()
 "----プラグインここまで----
 
 autocmd BufNewFile,BufRead *.vue set filetype=html
+autocmd BufNewFile,BufRead *.ts set filetype=javascript
 
 syntax enable
 set background=dark
@@ -227,8 +228,6 @@ nmap <C-w>a :vertical res 50
 " Y キーで「カーソルから行末までコピー(Yank)」
 nnoremap Y y$
 
-"ctrl + eでNERDtree表示
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "ウィンドウ間の移動
 nnoremap <C-j> <ESC><C-w>j
 nnoremap <C-k> <ESC><C-w>k
